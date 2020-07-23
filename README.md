@@ -1,3 +1,3 @@
 # istyle_
 
-zubs.me/istyle_
+https://www.zubs.me/istyle_
