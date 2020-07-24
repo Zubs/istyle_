@@ -1,0 +1,227 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>
+    iStyle | Vendor Registration
+  </title>
+  <meta content="" name="description" />
+  <script src="{{ url_for('static', filename = 'asset/scripts/jquery.min.js') }}">
+  </script>
+  <script src="{{ url_for('static', filename = 'asset/scripts/main.js') }}">
+  </script>
+  <link href="{{ url_for('static', filename = 'asset/css/bootstrap-grid.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename = 'asset/css/style.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename = 'asset/css/magnific-popup.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename = 'asset/css/contact-form.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename = 'skin.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename = 'media/logos/favicon.png') }}" rel="icon" />
+</head>
+
+<body>
+  <div id="preloader">
+  </div>
+  <nav class="menu-classic menu-fixed align-right light" data-menu-anima="fade-bottom" data-scroll-detect="true">
+    <div class="container">
+      <div class="menu-brand">
+        <a href="/">
+          <img alt="logo" class="logo-default" src="{{ url_for('static', filename = 'media/logos/iStyle_white.png') }}" />
+          <img alt="logo" class="logo-retina" src="{{ url_for('static', filename = 'media/logos/iStyle_white.png') }}" />
+        </a>
+      </div>
+      <i class="menu-btn">
+      </i>
+      <div class="menu-cnt">
+        <div class="menu-right">
+          <div class="menu-custom-area">
+            <a class="btn btn-xs" href="{{ url_for('register') }}" style="background-color: rgb(22 123 171); border:none">
+              Become an iStyle Vendor
+            </a>
+          </div>
+        </div>
+        <div class="clear">
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <section class="section-base section-color no-padding-bottom section-top-overflow" style="padding-top: 10%;">
+      <div class="container" style=" padding-top: 0px; padding-bottom: 100px; padding-left:5%; padding-right:50px">
+        <div class="boxed-area">
+          <div class="row">
+            <div class="col-lg-7">
+              <div style="line-height: 2.0em;">
+                <h2>
+                  Let's Get Started,
+                </h2>
+                <small>
+                  Become an iStyle vendor, register now
+                </small>
+              </div>
+              <br />
+              {% if successful %}
+              <div class="success-box">
+                <div class="alert alert-success">
+                  Registration sucessfull, kindly check your email for more information.
+                </div>
+              </div>
+              {% endif %}
+              {% if failed %}
+              <div class="error-box">
+                <div class="alert alert-warning">
+                  An error occured while trying to register, please retry.
+                </div>
+              </div>
+              {% endif %}
+              <form class="form-box" method="post">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <label>
+                      <small>
+                        <b>
+                          First Name
+                        </b>
+                      </small>
+                    </label>
+                    <input class="input-text" id="fname" name="fname" placeholder="First Name" required="" type="text" />
+                  </div>
+                  <div class="col-lg-6">
+                    <label>
+                      <small>
+                        <b>
+                          Last Name
+                        </b>
+                      </small>
+                    </label>
+                    <input class="input-text" id="lname" name="lname" placeholder="Last Name" required="" type="text" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <label>
+                      <small>
+                        <b>
+                          Email Address
+                        </b>
+                      </small>
+                    </label>
+                    <input class="input-text" id="email" name="email" placeholder="Email Address" required="" type="email" />
+                  </div>
+                  <div class="col-lg-6">
+                    <label>
+                      <small>
+                        <b>
+                          Phone Number
+                        </b>
+                      </small>
+                    </label>
+                    {% if request.form.get("phone") %}
+                    <input class="input-text" id="phone" name="phone" placeholder="Phone Number" required="" value="{{ request.form.get('phone') }}" type="text" />
+                    {% else %}
+                    <input class="input-text" id="phone" name="phone" placeholder="Phone Number" required="" type="text" />
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <label>
+                      <small>
+                        <b>
+                          Company Name
+                        </b>
+                      </small>
+                    </label>
+                    <input class="input-text" id="company" name="company" placeholder="Company" required="" type="text" />
+                  </div>
+                  <div class="col-lg-6">
+                    <label>
+                      <small>
+                        <b>
+                          Service Type
+                        </b>
+                      </small>
+                    </label>
+                    <select class="input-select" id="service" name="service" required="">
+                      <option selected="" value="select">
+                        Click to select service type
+                      </option>
+                      <option value="barber">
+                        Barber
+                      </option>
+                      <option value="hairdresser">
+                        Hair Dresser
+                      </option>
+                      <option value="makeupartist">
+                        Make Up Artist
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <label>
+                      <small>
+                        <b>
+                          Address
+                        </b>
+                      </small>
+                    </label>
+                    <textarea class="input-text" id="address" name="address" placeholder="Type in your address" required="" type="text"> </textarea>
+                  </div>
+                </div>
+                <div class="form-checkbox">
+                  <input id="check" type="checkbox" checked="checked" onclick="return false;">
+                  <label for="check" style="font-size: 10px;">
+                    By submitting this form you agree to iStyle's Terms of Use and acknowledge you have read the Privacy Policy.
+                  </label>
+                </div>
+                <button class="btn btn-sm" style="background-color: rgb(22 123 171)" type="submit">
+                  Create Account
+                </button>
+              </form>
+            </div>
+            <div class="col-lg-5">
+              <br />
+              <br />
+              <img src="{{ url_for('static', filename = 'media/logos/phone-11.png') }}" />
+            </div>
+          </div>
+        </div>
+        <hr class="space-lg visible-md" />
+      </div>
+    </section>
+  </main>
+  <i class="scroll-top-btn scroll-top show">
+  </i>
+  <footer class="footer-parallax light">
+    <div class="footer-bar">
+      <div class="container">
+        <span>
+          © iStyle 2020. iStyle for Fashion powered by the
+          <a href="/" target="_blank">
+            iStyle
+          </a>
+          Team.
+        </span>
+        <span>
+          <img src="{{ url_for('static', filename = 'media/logos/iStyle_white.png') }}" />
+        </span>
+      </div>
+    </div>
+    <link href="{{ url_for('static', filename = 'asset/media/icons/iconsmind/line-icons.min.css') }}" rel="stylesheet" />
+    <script src="{{ url_for('static', filename = 'asset/scripts/tab-accordion.js') }}">
+    </script>
+    <script src="{{ url_for('static', filename = 'asset/scripts/contact-form/contact-form.js') }}">
+    </script>
+    <script src="{{ url_for('static', filename = 'asset/scripts/magnific-popup.min.js') }}">
+    </script>
+    <script src="{{ url_for('static', filename = 'media/custom.js') }}">
+    </script>
+  </footer>
+</body>
+
+</html>

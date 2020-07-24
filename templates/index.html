@@ -1,0 +1,169 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>
+    iStyle | Fast and Affordable
+  </title>
+  <meta content="" name="description" />
+  <script src="{{ url_for('static', filename = 'asset/scripts/jquery.min.js') }}">
+  </script>
+  <script src="{{ url_for('static', filename = 'asset/scripts/main.js') }}">
+  </script>
+  <link href="{{ url_for('static', filename = 'asset/css/bootstrap-grid.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename = 'asset/css/style.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename = 'asset/css/glide.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename = 'asset/css/magnific-popup.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename = 'asset/css/content-box.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename = 'asset/css/contact-form.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename = 'asset/css/media-box.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename = 'asset/css/social.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename = 'skin.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename = 'media/logos/favicon.png') }}" rel="icon" />
+</head>
+
+<body>
+  <div id="preloader">
+  </div>
+  <nav class="menu-classic menu-fixed menu-transparent menu-one-page align-right" data-menu-anima="fade-bottom" data-scroll-detect="true">
+    <div class="container">
+      <div class="menu-brand">
+        <a href="/">
+          <img alt="logo" class="logo-default" src="{{ url_for('static', filename = 'media/logos/anime1.png') }}" />
+          <img alt="logo" class="logo-retina" src="{{ url_for('static', filename = 'media/logos/anime1.png') }}" />
+        </a>
+      </div>
+      <i class="menu-btn">
+      </i>
+      <div class="menu-cnt">
+        <ul>
+          <li>
+            <a href="/">
+              Follow us @
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <img src="{{ url_for('static', filename = 'media/logos/fb.png') }}" />
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <img src="{{ url_for('static', filename = 'media/logos/ig.png') }}" />
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <img src="{{ url_for('static', filename = 'media/logos/twit.png') }}" />
+              Twitter
+            </a>
+          </li>
+        </ul>
+        <div class="menu-right">
+          <div class="menu-custom-area">
+            <a class="btn btn-xs" href="/" style="background-color: #ffffff; color: #000; border:none;">
+              Login
+            </a>
+            <a class="btn btn-xs" href="{{ url_for('register') }}" style="background-color: rgb(22 123 171)">
+              Get Started
+            </a>
+          </div>
+        </div>
+        <div class="clear">
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <section class="section-base section-full-width-right">
+      <div class="container">
+        <hr class="space" />
+        <div class="row">
+          <div class="col-lg-6" data-anima="fade-left" data-time="1000">
+            <hr class="space-lg hidden-md" />
+            <ul class="slider controls-top-left" data-options="arrows:false,nav:true,controls:out">
+              <li>
+                <h1>
+                  Get Ready!
+                  <br />
+                  iStyle is coming your way soon
+                </h1>
+                <p>
+                  Become an iStyle Vendor
+                  <br />
+                  We've built the service you always dreamed of and now
+                  you can avoid no customer, kindly hit the register button below
+                  to complete registration form
+                </p>
+                <br />
+                <form action="{{ url_for('register') }}" class="form-box" method="post">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <input class="input-text" id="phone" name="phone" placeholder="(+234) Enter your phone number" required="" style="border-color: aliceblue" type="text" />
+                    </div>
+                  </div>
+                  <button class="btn btn-sm" style="background-color: rgb(22 123 171)" type="submit">
+                    Click to continue registration
+                  </button>
+                </form>
+              </li>
+            </ul>
+            <hr class="space-xs" />
+          </div>
+          <div class="col-lg-6">
+            <br />
+            <hr class="space visible-md" />
+            <img alt="" class="width-min-835" src="{{ url_for('static', filename = 'media/logos/travel-2.svg') }}" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <i class="scroll-top-btn scroll-top show">
+  </i>
+  <footer class="footer-parallax light">
+    <div class="footer-bar">
+      <div class="container">
+        <span>
+          © iStyle 2020. iStyle for Fashion powered by the
+          <a href="/" target="_blank">
+            iStyle
+          </a>
+          Team.
+        </span>
+        <span>
+          <img src="{{ url_for('static', filename = 'media/logos/iStyle_white.png') }}" />
+        </span>
+      </div>
+    </div>
+    <link href="{{ url_for('static', filename = 'asset/media/icons/iconsmind/line-icons.min.css') }}" rel="stylesheet" />
+    <script src="{{ url_for('static', filename = 'asset/scripts/parallax.min.js') }}">
+    </script>
+    <script src="{{ url_for('static', filename = 'asset/scripts/glide.min.js') }}">
+    </script>
+    <script src="{{ url_for('static', filename = 'asset/scripts/magnific-popup.min.js') }}">
+    </script>
+    <script src="{{ url_for('static', filename = 'asset/scripts/tab-accordion.js') }}">
+    </script>
+    <script src="{{ url_for('static', filename = 'asset/scripts/imagesloaded.min.js') }}">
+    </script>
+    <script src="{{ url_for('static', filename = 'asset/scripts/contact-form/contact-form.js') }}">
+    </script>
+    <script src="{{ url_for('static', filename = 'asset/scripts/progress.js') }}">
+    </script>
+    <script src="{{ url_for('static', filename = 'asset/scripts/pagination.min.js') }}">
+    </script>
+    <script src="{{ url_for('static', filename = 'asset/scripts/social.min.js') }}">
+    </script>
+    <script src="{{ url_for('static', filename = 'media/custom.js') }}">
+    </script>
+  </footer>
+</body>
+
+</html>
