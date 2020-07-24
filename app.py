@@ -1,4 +1,5 @@
 import json
+import re
 from flask import *
 import mysql.connector
 
@@ -24,6 +25,8 @@ def register():
             if None in [fname, lname, email, phone, company, address]:
                 raise Exception()
             if (not phone.startswith("+234")) or len(phone) != 14:
+                raise Exception()
+            if re.search("^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$", email) == None:
                 raise Exception()
             fname = fname.capitalize()
             lname = lname.capitalize()

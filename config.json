@@ -1,9 +1,8 @@
 {
   "db": {
-    "user": "root",
-    "password": "root",
+    "user": "thekyzkt_istyle",
+    "password": "zGk+#*aIGlfp",
     "host": "localhost",
-    "port": 8889,
-    "database": "istyle"
+    "database": "thekyzkt_istyle"
   }
 }
