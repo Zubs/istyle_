@@ -70,10 +70,10 @@
                 </div>
               </div>
               {% endif %}
-              {% if failed %}
+              {% if error %}
               <div class="error-box">
                 <div class="alert alert-warning">
-                  An error occured while trying to register, please retry.
+                  {{ error }}
                 </div>
               </div>
               {% endif %}

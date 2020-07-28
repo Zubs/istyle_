@@ -4,5 +4,13 @@
     "password": "zGk+#*aIGlfp",
     "host": "localhost",
     "database": "thekyzkt_istyle"
+  },
+  "mail_settings": {
+    "MAIL_SERVER": "istylebeauty.com",
+    "MAIL_USERNAME": "no-reply@istylebeauty.com",
+    "MAIL_PASSWORD": "^LABoroXiqx#",
+    "MAIL_PORT": 465,
+    "MAIL_USE_TLS": false,
+    "MAIL_USE_SSL": true
   }
 }

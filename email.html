@@ -1,16 +1,4 @@
-import json
-import re
-from flask import *
-from flask_mail import Mail, Message
-import mysql.connector
-
-app = Flask(__name__)
-config = json.load(open("config.json"))
-mail_settings = config["mail_settings"]
-app.config.update(mail_settings)
-mail = Mail(app)
-
-email_template = """<html>
+<html>
 
 <head>
   <meta name="viewport" content="width=device-width">
@@ -216,56 +204,4 @@ email_template = """<html>
 
 </body>
 
-</html>"""
-
-
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-
-@app.route("/register/", methods=["GET", "POST"])
-def register():
-    fname = request.form.get("fname")
-    if fname:
-        try:
-            lname = request.form.get("lname")
-            email = request.form.get("email")
-            phone = request.form.get("phone")
-            company = request.form.get("company")
-            address = request.form.get("address")
-            if None in [fname, lname, email, phone, company, address]:
-                raise Exception()
-            if re.search("^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$", email) == None:
-                raise Exception()
-            fname = fname.capitalize()
-            lname = lname.capitalize()
-            db = mysql.connector.connect(**config["db"])
-            cursor = db.cursor()
-            cursor.execute("SELECT * FROM users WHERE email=%s", (email,))
-            if cursor.fetchone():
-                return render_template("vendor-registration.html", error="The account you are trying to register already exists.")
-            else:
-                cursor.execute("INSERT into users (email, fname, lname, phone, company, address) VALUES (%s, %s, %s, %s, %s, %s)",
-                               (email, fname, lname, phone, company, address))
-                db.commit()
-                send_welcome_mail(email, fname)
-            return render_template("vendor-registration.html", successful=True)
-        except:
-            return render_template("vendor-registration.html", error="An error occured while trying to register, please retry.")
-    return render_template("vendor-registration.html")
-
-
-def send_welcome_mail(email, name):
-    with app.app_context():
-        try:
-            html = email_template.format(name=name)
-            msg = Message(subject=subject, sender=("iStyle Team", app.config.get(
-                "MAIL_USERNAME")), recipients=[email], html=html)
-            mail.send(msg)
-        except:
-            pass
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
+</html>
